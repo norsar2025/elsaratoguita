@@ -7,25 +7,25 @@
     <title>Saratoguita Mundo Malboro</title>
     <!-- Security Headers -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://fonts.googleapis.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://www.facebook.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
     <!-- Meta Pixel Code -->
     <script>
         (function() {
-            try {
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '1833409347415962');
-                fbq('track', 'PageView');
-            } catch(e) {
-                console.error('Meta Pixel failed to load:', e);
-            }
+            window.fbq = window.fbq || function() {
+                window.fbq.queue = window.fbq.queue || [];
+                window.fbq.queue.push(arguments);
+            };
+            fbq('init', '1833409347415962');
+            fbq('track', 'PageView');
+            console.log('Pixel: Initialized ID 1833409347415962, PageView sent');
         })();
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+        s.onload = function() { console.log('Pixel: fbevents.js loaded'); };
+        s.onerror = function() { console.error('Pixel: Failed to load fbevents.js'); };
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
@@ -42,8 +42,8 @@
         }
         body {
             font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(to bottom, #fdf6e3, #f8f9fa); /* Warm, subtle gradient */
-            color: #3c2f2f; /* Deep brown for readability */
+            background: linear-gradient(to bottom, #fdf6e3, #f8f9fa); /* Warm gradient */
+            color: #3c2f2f; /* Deep brown */
             line-height: 1.6;
             margin: 0;
         }
@@ -54,13 +54,13 @@
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            border: 2px solid #b8860b; /* Golden border for Western flair */
+            border: 2px solid #b8860b; /* Golden border */
         }
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
             font-weight: 700;
-            color: #8b0000; /* Rich red for boldness */
+            color: #8b0000; /* Rich red */
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -76,7 +76,7 @@
         }
         .highlight {
             font-weight: 600;
-            color: #b8860b; /* Gold for emphasis */
+            color: #b8860b; /* Gold */
         }
         .custom-belts {
             font-weight: 600;
@@ -85,7 +85,7 @@
         .contact-info {
             margin-top: 2rem;
             padding: 1.8rem;
-            background: #f9e9c3; /* Light tan for warmth */
+            background: #f9e9c3; /* Light tan */
             border-radius: 10px;
             border: 1px solid #d4a017;
             text-align: left;
@@ -111,19 +111,6 @@
             font-size: 1rem;
             margin-left: 8px;
         }
-        .privacy-notice {
-            font-size: 0.9rem;
-            color: #6b3e2e;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        .privacy-notice a {
-            color: #d4a017;
-            text-decoration: none;
-        }
-        .privacy-notice a:hover {
-            text-decoration: underline;
-        }
         .whatsapp-btn {
             display: inline-block;
             background: #d4a017; /* Golden button */
@@ -136,7 +123,7 @@
             margin-left: 8px;
         }
         .whatsapp-btn:hover {
-            background: #b8860b; /* Darker gold on hover */
+            background: #b8860b; /* Darker gold */
         }
         @media (max-width: 600px) {
             .container {
@@ -159,13 +146,13 @@
     <div class="container">
         <h1>🌵 Saratoguita Mundo Malboro 🌵</h1>
         <p><span class="highlight">🤠 Texanas y Sombreros</span> de estilo único.</p>
-        <p><span class="custom-belts">💫 Cintos Personalizados</span> hechos a tu medida.</p>
+        <p class="custom-belts">💫 Cintos Personalizados hechos a tu medida.</p>
         <p>👕 Chalecos y chamarras de lona con <span class="discount">15% OFF</span>.</p>
         <p>👢 Botas de las mejores marcas y estilos.</p>
         <div class="contact-info">
             <p><span class="icon">📍</span> Boulevar Óscar Flores 1902, Delicias, Chih. (frente a Pensiones Civiles)</p>
             <p><span class="icon">🕒</span> 12:00 PM - 8:00 PM, todos los días</p>
-            <p><span class="icon">📱</span> WhatsApp: <a href="tel:+526391003996" onclick="fbq('track', 'Contact');" class="whatsapp-btn">(639) 100-3996</a></p>
+            <p><span class="icon">📱</span> WhatsApp: <a href="tel:+526391003996" onclick="fbq('track', 'Contact'); console.log('Pixel: Contact event sent');" class="whatsapp-btn">(639) 100-3996</a></p>
         </div>
     </div>
 </body>
