@@ -7,28 +7,31 @@
     <title>Saratoguita Mundo Malboro</title>
     <!-- Security Headers -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://fonts.googleapis.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
     <!-- Meta Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1833409347415962');
-        fbq('track', 'PageView');
+        (function() {
+            try {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1833409347415962');
+                fbq('track', 'PageView');
+            } catch(e) {
+                console.error('Meta Pixel failed to load:', e);
+            }
+        })();
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
              src="https://www.facebook.com/tr?id=1833409347415962&ev=PageView&noscript=1" />
     </noscript>
     <!-- End Meta Pixel Code -->
-    <!-- Google tag (gtag.js) -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -39,85 +42,114 @@
         }
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background: linear-gradient(to bottom, #fdf6e3, #f8f9fa); /* Warm, subtle gradient */
+            color: #3c2f2f; /* Deep brown for readability */
             line-height: 1.6;
             margin: 0;
         }
         .container {
             max-width: 700px;
             margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid #b8860b; /* Golden border for Western flair */
         }
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            color: #2c3e50;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #8b0000; /* Rich red for boldness */
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            color: #4a3728; /* Warm brown */
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
         }
         .highlight {
             font-weight: 600;
-            color: #e74c3c;
+            color: #b8860b; /* Gold for emphasis */
         }
         .custom-belts {
             font-weight: 600;
-            color: #8e44ad;
+            color: #6b3e2e; /* Saddle brown */
         }
         .contact-info {
             margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #f1f1f1;
-            border-radius: 8px;
+            padding: 1.8rem;
+            background: #f9e9c3; /* Light tan for warmth */
+            border-radius: 10px;
+            border: 1px solid #d4a017;
             text-align: left;
         }
         .contact-info p {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
         }
         .contact-info .icon {
-            margin-right: 10px;
-            color: #3498db;
+            margin-right: 12px;
+            color: #d4a017; /* Golden icons */
+            font-size: 1.3rem;
         }
         .discount {
             display: inline-block;
-            background-color: #e74c3c;
+            background: #8b0000; /* Deep red */
             color: #fff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
             font-weight: 600;
+            font-size: 1rem;
+            margin-left: 8px;
         }
         .privacy-notice {
             font-size: 0.9rem;
-            color: #777;
-            margin-top: 1.5rem;
+            color: #6b3e2e;
+            margin-top: 2rem;
             text-align: center;
         }
         .privacy-notice a {
-            color: #3498db;
+            color: #d4a017;
             text-decoration: none;
         }
         .privacy-notice a:hover {
             text-decoration: underline;
         }
+        .whatsapp-btn {
+            display: inline-block;
+            background: #d4a017; /* Golden button */
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-left: 8px;
+        }
+        .whatsapp-btn:hover {
+            background: #b8860b; /* Darker gold on hover */
+        }
         @media (max-width: 600px) {
             .container {
                 margin: 20px;
-                padding: 15px;
+                padding: 20px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             p {
+                font-size: 1.1rem;
+            }
+            .contact-info p {
                 font-size: 1rem;
             }
         }
@@ -125,15 +157,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Saratoguita Mundo Malboro</h1>
-        <p><span class="highlight">🤠 Texanas y Sombreros</span></p>
-        <p class="custom-belts">✴️ Fabricamos <strong>cintos personalizados</strong> a tu gusto.</p>
-        <p>👕 Chalecos y chamarras de lona con <span class="discount">15% de descuento</span>.</p>
-        <p>👢 Botas de varias marcas y estilos.</p>
+        <h1>🌵 Saratoguita Mundo Malboro 🌵</h1>
+        <p><span class="highlight">🤠 Texanas y Sombreros</span> de estilo único.</p>
+        <p><span class="custom-belts">💫 Cintos Personalizados</span> hechos a tu medida.</p>
+        <p>👕 Chalecos y chamarras de lona con <span class="discount">15% OFF</span>.</p>
+        <p>👢 Botas de las mejores marcas y estilos.</p>
         <div class="contact-info">
-            <p><span class="icon">📌</span> Dirección: Boulevar Óscar Flores 1902, Delicias, Chih. (enfrente de Pensiones Civiles)</p>
-            <p><span class="icon">⏰</span> Horario: 12:00 PM - 8:00 PM, abierto todos los días</p>
-            <p><span class="icon">📱</span> WhatsApp: <a href="tel:+526391003996" onclick="fbq('track', 'Contact'); gtag('event', 'click_whatsapp', { 'event_category': 'Button', 'event_label': 'WhatsApp' });">(639) 100-3996</a></p>
+            <p><span class="icon">📍</span> Boulevar Óscar Flores 1902, Delicias, Chih. (frente a Pensiones Civiles)</p>
+            <p><span class="icon">🕒</span> 12:00 PM - 8:00 PM, todos los días</p>
+            <p><span class="icon">📱</span> WhatsApp: <a href="tel:+526391003996" onclick="fbq('track', 'Contact');" class="whatsapp-btn">(639) 100-3996</a></p>
         </div>
     </div>
 </body>
