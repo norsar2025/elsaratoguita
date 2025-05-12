@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Saratoguita Mundo Malboro - Texanas, sombreros, cintos personalizados, botas, chalecos y chamarras en Delicias, Chihuahua. ¡Contáctanos hoy!">
-    <title>Saratoguita Mundo Malboro</title>
-    <!-- Security Headers -->
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Saratoguita Mundo Malboro - Contacto</title> <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://www.facebook.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
-    <!-- Meta Pixel Code -->
+
     <script>
-        (function() {
-            window.fbq = window.fbq || function() {
-                window.fbq.queue = window.fbq.queue || [];
-                window.fbq.queue.push(arguments);
-            };
-            fbq('init', '1847855769342317');
-            fbq('track', 'PageView');
-            console.log('Pixel: Initialized ID 1833409347415962, PageView sent');
-        })();
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://connect.facebook.net/en_US/fbevents.js';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-        s.onload = function() { console.log('Pixel: fbevents.js loaded'); };
-        s.onerror = function() { console.error('Pixel: Failed to load fbevents.js'); };
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+        // VERIFICA ESTE ID DE PIXEL - Asegúrate que sea el correcto para tu campaña
+        const PIXEL_ID = '1847855769342317';
+        // Nota: Tu código original tenía un console.log con ID '1833409347415962' pero inicializaba con '1847855769342317'. Usa el ID correcto consistentemente.
+
+        fbq('init', PIXEL_ID);
+        fbq('track', 'PageView');
+        console.log(`Pixel ID ${PIXEL_ID}: Initialized and PageView event sent.`);
+
+        // Función para rastrear clics de contacto (WhatsApp en este caso)
+        function trackWhatsAppClick() {
+          try {
+            fbq('track', 'Contact');
+            console.log(`Pixel ID ${PIXEL_ID}: Contact event sent (WhatsApp click).`);
+          } catch (e) {
+            console.error('Error sending Pixel event:', e);
+          }
+        }
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
              src="https://www.facebook.com/tr?id=1847855769342317&ev=PageView&noscript=1" />
     </noscript>
-    <!-- End Meta Pixel Code -->
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* Tus estilos CSS (sin cambios respecto al original) */
         * {
             margin: 0;
             padding: 0;
@@ -71,8 +79,8 @@
             font-size: 1.2rem;
             color: #4a3728; /* Warm brown */
             margin-bottom: 1.3rem;
-            display: flex;
-            align-items: center;
+            /* display: flex; */ /* Quitado para que el botón/enlace no fuerce el flex en todo el párrafo */
+            /* align-items: center; */ /* Quitado */
         }
         .highlight {
             font-weight: 600;
@@ -93,13 +101,14 @@
         .contact-info p {
             font-size: 1.1rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
+            display: flex; /* Mantenido aquí para alinear icono y texto */
+            align-items: center; /* Mantenido aquí */
         }
         .contact-info .icon {
             margin-right: 12px;
             color: #d4a017; /* Golden icons */
             font-size: 1.3rem;
+            display: inline-block; /* Asegura espacio */
         }
         .discount {
             display: inline-block;
@@ -111,20 +120,33 @@
             font-size: 1rem;
             margin-left: 8px;
         }
+        /* Estilo para el botón/enlace de WhatsApp */
         .whatsapp-btn {
             display: inline-block;
-            background: #d4a017; /* Golden button */
+            background: #25D366; /* Color oficial de WhatsApp */
             color: #fff;
-            padding: 0.5rem 1.2rem;
-            border-radius: 8px;
+            padding: 0.6rem 1.3rem; /* Ligeramente más grande */
+            border-radius: 25px; /* Más redondeado */
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
             margin-left: 8px;
+            font-size: 1rem; /* Tamaño de fuente consistente */
+            vertical-align: middle; /* Alinear mejor con el texto */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
         }
         .whatsapp-btn:hover {
-            background: #b8860b; /* Darker gold */
+            background: #128C7E; /* Color más oscuro de WhatsApp al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación leve */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
+        /* Añadido: Estilo para el texto del enlace de WhatsApp */
+         .contact-info p a {
+            color: #fff; /* Asegura que el texto dentro del botón sea blanco */
+            text-decoration: none; /* Sin subrayado */
+         }
+
+
         @media (max-width: 600px) {
             .container {
                 margin: 20px;
@@ -134,26 +156,43 @@
                 font-size: 2.2rem;
             }
             p {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Ajustado */
             }
             .contact-info p {
                 font-size: 1rem;
+                align-items: flex-start; /* Mejor alineación en móvil si el texto es largo */
             }
+            .contact-info .icon {
+                 margin-right: 8px; /* Menos espacio en móvil */
+                 font-size: 1.2rem;
+            }
+             .whatsapp-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌵 Saratoguita Mundo Malboro 🌵</h1>
-        <p><span class="highlight">🤠 Texanas y Sombreros </span> de estilo único.</p>
-        <p class="custom-belts">💫 Cintos Personalizados hechos a tu medida.</p>
-        <p>👕 Chalecos y chamarras de lona con <span class="discount">15% OFF</span>.</p>
-        <p>👢 Botas de las mejores marcas y estilos.</p>
+        <h1><span aria-hidden="true">🌵</span> Saratoguita Mundo Malboro <span aria-hidden="true">🌵</span></h1>
+        <p><span class="highlight"><span aria-hidden="true">🤠</span> Texanas y Sombreros </span> de estilo único.</p>
+        <p class="custom-belts"><span aria-hidden="true">💫</span> Cintos Personalizados hechos a tu medida.</p>
+        <p><span aria-hidden="true">👕</span> Chalecos y chamarras de lona con <span class="discount">15% OFF</span>.</p>
+        <p><span aria-hidden="true">👢</span> Botas de las mejores marcas y estilos.</p>
+
         <div class="contact-info">
-            <p><span class="icon">📍</span> Boulevar Óscar Flores 1902, Delicias, Chih. (frente a Pensiones Civiles)</p>
-            <p><span class="icon">🕒</span> 12:00 PM - 8:00 PM, todos los días</p>
-            <p><span class="icon">📱</span> WhatsApp: <a href="tel:+526391003996" onclick="fbq('track', 'Contact'); console.log('Pixel: Contact event sent');" class="whatsapp-btn">(639) 100-3996</a></p>
-        </div>
+            <p><span class="icon" aria-hidden="true">📍</span> Boulevar Óscar Flores 1902, Delicias, Chih. (frente a Pensiones Civiles)</p>
+            <p><span class="icon" aria-hidden="true">🕒</span> 12:00 PM - 8:00 PM, todos los días</p>
+            <p>
+                <span class="icon" aria-hidden="true">📱</span> WhatsApp:
+                <a href="https://wa.me/5216391003996"
+                   onclick="trackWhatsAppClick();"
+                   class="whatsapp-btn"
+                   target="_blank" rel="noopener noreferrer"> (639) 100-3996
+                </a>
+            </p>
+            </div>
     </div>
 </body>
 </html>
