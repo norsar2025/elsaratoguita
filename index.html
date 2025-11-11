@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Saratoguita Mundo Malboro - Texanas, sombreros, cintos personalizados, botas, chalecos y chamarras en Delicias, Chihuahua. ¡Contáctanos hoy!">
-    <title>Saratoguita Mundo Malboro - Contacto</title> <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Saratoguita Mundo Malboro - Contacto</title>
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- Enhanced: Add Facebook Domain Verification meta tag here once you get the code from Meta Events Manager (Settings > Domain Verification). 
+         This helps activate the pixel fully and reduces warnings. Replace 'YOUR_VERIFICATION_CODE' with the actual code. -->
+    <!-- <meta name="facebook-domain-verification" content="YOUR_VERIFICATION_CODE"> -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net https://www.facebook.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com;">
 
     <script>
@@ -23,22 +27,36 @@
         // 11nov2025 se remueve pixel terminacion 285001 y se pone el de 20agosto2025 1847855769342317 que genero ventas al local sombreros
 
         fbq('init', PIXEL_ID);
-        fbq('track', 'PageView');
-        console.log(`Pixel ID ${PIXEL_ID}: Initialized and PageView event sent.`);
+        // Enhanced: Track 'ViewContent' instead of just 'PageView' for better ad optimization on a contact/landing page.
+        // This provides more context (e.g., content_type: 'contact_page') and can help with pixel activation.
+        fbq('track', 'ViewContent', {
+            content_type: 'contact_page',
+            content_name: 'Saratoguita Contacto'
+        });
+        console.log(`Pixel ID ${PIXEL_ID}: Initialized and ViewContent event sent.`);
 
-        // Función para rastrear clics de contacto (WhatsApp en este caso)
+        // Enhanced: Improved Contact tracking function with standard parameters for richer data.
+        // Added 'currency' and 'value' (set to 0 for leads, but customizable). This helps Meta validate and activate the event.
+        // Also added event deduplication ID for reliability in case of retries.
         function trackWhatsAppClick() {
           try {
-            fbq('track', 'Contact');
-            console.log(`Pixel ID ${PIXEL_ID}: Contact event sent (WhatsApp click).`);
+            const eventID = 'contact_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9); // Unique dedup ID
+            fbq('track', 'Contact', {
+              content_name: 'WhatsApp Contact',
+              content_category: 'Customer Inquiry',
+              currency: 'MXN',
+              value: 0 // For leads; set to actual value if tracking sales later
+            }, { eventID: eventID });
+            console.log(`Pixel ID ${PIXEL_ID}: Contact event sent (WhatsApp click) with eventID: ${eventID}.`);
           } catch (e) {
             console.error('Error sending Pixel event:', e);
           }
+          // Note: No return false; let the link open normally after firing the event.
         }
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=1847855769342317&ev=PageView&noscript=1" />
+             src="https://www.facebook.com/tr?id=1847855769342317&ev=ViewContent&noscript=1" />
     </noscript>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
